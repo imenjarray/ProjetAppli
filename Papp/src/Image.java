@@ -118,9 +118,7 @@ public int [][] matriceInversé(int [][] pixels){
 		}
 		y--;
 	}
-	
 	return pixels;
-	
 }
 
 
