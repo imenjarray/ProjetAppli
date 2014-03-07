@@ -107,19 +107,27 @@ protected BufferedImage reduireImage(double d)
 }
 
 public int [][] matriceInversé(int [][] pixels){
-	int x=pixels[0].length-1;
-	int y=pixels.length-1;
-	int [][] matriceInverse= new int [x][y];
-	
+	//int x=pixels[0].length-1;
+	//int y=pixels.length-1;
+	int [][] matriceInverse= new int [pixels[0].length][pixels.length];
+	int y=0;
 	for(int i=0; i<pixels[0].length;i++){
+		System.out.println("entre dans 1er for i "+i);
+		int x=pixels[0].length-1;
 		for(int j=0; j<pixels.length;j++){
+			System.out.println("entre dans 1er for j "+j);
+			System.out.println("x="+x);
 			matriceInverse[i][j]=pixels[x][y];
-			x--;
+			System.out.println("pixels[x][y] "+pixels[x][y]);
+			System.out.println("matriceInverse[i][j]"+matriceInverse[i][j]);
+			x=x-1;
 		}
-		y--;
+
+		System.out.println("y="+y);
+		y++;
 	}
-	return pixels;
-}
+	return matriceInverse;
+	}
 
 
 /*public static void main(String []args) throws IOException{
@@ -143,15 +151,17 @@ public int [][] matriceInversé(int [][] pixels){
 }*/
 public static void main(String []args) throws IOException{
 	Image image= new Image();
-	int [][] pixels={
+	int [][] pixeles={
 			{1,1,2,2},
 			{4,1,5,1},
 			{6,1,0,5},
 			{1,2,5,4}
 	};
+	System.out.println("pixels.length[0] "+pixeles[0].length);
+	System.out.println("pixels.length "+pixeles.length);
 	
 	int[][]test= new int[4][4];
-	test=image.matriceInversé(pixels);
+	test=image.matriceInversé(pixeles);
 	for(int e=0; e<test.length;e++){
 		for(int f=0; f<test.length;f++){
 			
